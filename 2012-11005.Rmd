@@ -1,0 +1,26 @@
+---
+title: "Linear Regression"
+author: "Hyejin Shin"
+date: "2016년 9월 8일"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Fitting Linear Regression
+
+airquality 데이터애서 바람과 오존에 대해 선형회귀모형을 적합시켰다. 이에 따라 (오존)= -5.5509*(바람)+ 96.8729이고, 바람에 대한 coefficient의 유의확률은 9.27e-13, 상수에 대한 유의확률은 2e-16 미만으로 두 변수 모두 유의함을 볼 수 있다.
+
+```{r cars}
+lm.ozone.wind<-lm(Ozone~Wind, data=airquality)
+summary(lm.ozone.wind)
+```
+
+## Linear Regression Model Plot
+
+```{r pressure, echo=FALSE}
+plot(airquality$Wind, airquality$Ozone,xlab="Wind", ylab="Ozone")
+abline(lm.ozone.wind)
+```
